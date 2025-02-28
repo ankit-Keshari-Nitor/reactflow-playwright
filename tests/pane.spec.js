@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await page.waitForSelector('[data-id="e1-2"]', { timeout: 5000 })
 })
 
-test.only("panning the pane moves it", async ({ page }) => {
+test("panning the pane moves it", async ({ page }) => {
   const pane = page.locator(".react-flow__pane")
   const viewport = page.locator(".react-flow__viewport")
 
