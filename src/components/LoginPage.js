@@ -17,7 +17,7 @@ const LoginForm = (props) => {
   }
 
   return (
-    <div className="section is-fullheight">
+    <div className="section is-fullheight login-container">
       {loggedIn && <Navigate to="/default" />}
       <div className="container">
         <div className="column is-6 is-offset-3">
@@ -28,6 +28,7 @@ const LoginForm = (props) => {
                 <label className="label">Email Address</label>
                 <div className="control">
                   <input
+                    id="email"
                     autoComplete="off"
                     className={`input ${errors.email && "is-danger"}`}
                     type="email"
@@ -45,6 +46,7 @@ const LoginForm = (props) => {
                 <label className="label">Password</label>
                 <div className="control">
                   <input
+                    id="password"
                     className={`input ${errors.password && "is-danger"}`}
                     type="password"
                     name="password"
@@ -58,6 +60,7 @@ const LoginForm = (props) => {
                 )}
               </div>
               <button
+                id="signInBtn"
                 type="submit"
                 className="button is-block is-info is-fullwidth"
               >

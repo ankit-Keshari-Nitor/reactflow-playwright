@@ -25,13 +25,10 @@
   background: #2196f3; /* Special Node color */
 }
 
-.testButton {
-  margin-top: 20px;
-}
-
-small {
-  display: block;
-  font-size: 12px;
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
