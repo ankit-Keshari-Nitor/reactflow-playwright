@@ -38,7 +38,9 @@ const LoginForm = (props) => {
                     required
                   />
                   {errors.email && (
-                    <p className="help is-danger">{errors.email}</p>
+                    <p id="email-error" className="help is-danger">
+                      {errors.email}
+                    </p>
                   )}
                 </div>
               </div>
@@ -56,7 +58,9 @@ const LoginForm = (props) => {
                   />
                 </div>
                 {errors.password && (
-                  <p className="help is-danger">{errors.password}</p>
+                  <p id="password-error" className="help is-danger">
+                    {errors.password}
+                  </p>
                 )}
               </div>
               <button
