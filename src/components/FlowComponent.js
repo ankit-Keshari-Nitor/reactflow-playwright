@@ -60,7 +60,7 @@ const FlowComponent = () => {
   return (
     <div
       style={{
-        height: "100vh",
+        height: "100%",
         width: "100%",
         background: "#ffffff !important",
       }}

@@ -15,7 +15,7 @@ function Workflow() {
             event.dataTransfer.setData("application/reactflow", "partner")
           }}
         >
-          Partner Node
+          Partner
         </div>
         <div
           id="sponsor-node"
@@ -25,7 +25,7 @@ function Workflow() {
             event.dataTransfer.setData("application/reactflow", "sponsor")
           }}
         >
-          Sponsor Node
+          Sponsor
         </div>
       </div>
       <FlowComponent />
