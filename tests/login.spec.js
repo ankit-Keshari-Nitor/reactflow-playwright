@@ -17,7 +17,7 @@ test("Login", async ({ page }) => {
   await signInBtn.click()
 })
 
-test.only("Validate Form and Login", async ({ page }) => {
+test("Validate Form and Login", async ({ page }) => {
   // Declare the variable
   const userEmail = page.locator("#email")
   const password = page.locator("#password")

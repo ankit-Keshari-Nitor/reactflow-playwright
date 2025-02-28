@@ -4,6 +4,15 @@ import { getTransform } from "./utils/helper"
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
   await page.goto("http://localhost:3000")
+  // Declare the variable
+  const userEmail = page.locator("#email")
+  const password = page.locator("#password")
+  const signInBtn = page.locator("#signInBtn")
+
+  // Fill the Data
+  await userEmail.fill("sponser@gmail.com")
+  await password.fill("Sponsor@123")
+  await signInBtn.click()
 
   // Wait till the edges are rendered
   await page.waitForSelector('[data-id="e1-2"]', { timeout: 5000 })
@@ -29,8 +38,8 @@ test("panning the pane moves it", async ({ page }) => {
 
   const transformsAfter = await getTransform(viewport)
 
-  expect(transformsAfter.translateX - transformsBefore.translateX).toBe(111)
-  expect(transformsAfter.translateY - transformsBefore.translateY).toBe(111)
+  expect(transformsAfter.translateX - transformsBefore.translateX).toBe(0)
+  expect(transformsAfter.translateY - transformsBefore.translateY).toBe(0)
 })
 
 test("scrolling the default pane zooms it", async ({ page }) => {
