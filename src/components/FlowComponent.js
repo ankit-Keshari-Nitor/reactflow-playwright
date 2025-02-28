@@ -16,10 +16,6 @@ const FlowComponent = () => {
   const [edges, setEdges] = useState(INITIAL_EDGES)
   const reactFlowWrapper = useRef(null) // Create a ref
 
-  console.log("nodes", nodes)
-
-  console.log("edges", edges)
-
   const onConnect = useCallback((params) => {
     setEdges((eds) => addEdge(params, eds))
   }, [])
