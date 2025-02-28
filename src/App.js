@@ -1,38 +1,32 @@
-import React, { useCallback } from "react"
-import {
-  ReactFlow,
-  addEdge,
-  MiniMap,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-} from "@xyflow/react"
-import "@xyflow/react/dist/style.css"
-import { INITIAL_EDGES, INITIAL_NODES } from "./utils/constant"
+import React from "react"
+import FlowComponent from "./components/FlowComponent"
+
+import "./styles/styles.css"
 
 function App() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(INITIAL_NODES)
-  const [edges, setEdges, onEdgesChange] = useEdgesState(INITIAL_EDGES)
-
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  )
-
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-      >
-        <MiniMap />
-        <Controls />
-        <Background />
-      </ReactFlow>
+    <div className="main-container">
+      <div className="drag-container">
+        <div
+          className="draggable"
+          draggable
+          onDragStart={(event) => {
+            event.dataTransfer.setData("application/reactflow", "partner")
+          }}
+        >
+          Partner Node
+        </div>
+        <div
+          className="draggable"
+          draggable
+          onDragStart={(event) => {
+            event.dataTransfer.setData("application/reactflow", "sponsor")
+          }}
+        >
+          Sponsor Node
+        </div>
+      </div>
+      <FlowComponent />
     </div>
   )
 }

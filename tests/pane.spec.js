@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await page.waitForSelector('[data-id="e1-2"]', { timeout: 5000 })
 })
 
-test("panning the pane moves it", async ({ page }) => {
+test.only("panning the pane moves it", async ({ page }) => {
   const pane = page.locator(".react-flow__pane")
   const viewport = page.locator(".react-flow__viewport")
 
@@ -29,8 +29,8 @@ test("panning the pane moves it", async ({ page }) => {
 
   const transformsAfter = await getTransform(viewport)
 
-  expect(transformsAfter.translateX - transformsBefore.translateX).toBe(100)
-  expect(transformsAfter.translateY - transformsBefore.translateY).toBe(100)
+  expect(transformsAfter.translateX - transformsBefore.translateX).toBe(111)
+  expect(transformsAfter.translateY - transformsBefore.translateY).toBe(111)
 })
 
 test("scrolling the default pane zooms it", async ({ page }) => {

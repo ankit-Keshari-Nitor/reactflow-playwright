@@ -1,0 +1,26 @@
+.main-container {
+  display: flex;
+}
+.drag-container {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  display: flex;
+  gap: 10px;
+  background: lightgray;
+}
+
+.draggable {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: grab;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* Additional style for the special node */
+.draggable[data-type="special"] {
+  background: #2196f3; /* Special Node color */
+}
