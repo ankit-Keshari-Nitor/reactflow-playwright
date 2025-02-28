@@ -9,7 +9,7 @@ import {
 } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
 import "../styles/styles.css"
-import { INITIAL_NODES, INITIAL_EDGES } from "./../utils/constant"
+import { INITIAL_NODES, INITIAL_EDGES } from "../utils/constant"
 
 const FlowComponent = () => {
   const [nodes, setNodes] = useState(INITIAL_NODES)

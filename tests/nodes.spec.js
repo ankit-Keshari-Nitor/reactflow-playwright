@@ -61,6 +61,22 @@ test("Dragging a node", async ({ page }) => {
   expect(transformBeforeMove).not.toMatch(transformAfterMove)
 })
 
+test("Dropping a node", async ({ page }) => {
+  const node = page.locator("#partner-node")
+
+  const nodeBefore = await page.locator(".react-flow__node").all()
+
+  await node.hover()
+  await page.mouse.down()
+  await page.mouse.move(0, 0)
+  await page.waitForTimeout(500)
+  await page.mouse.move(900, 300, { steps: 100 })
+  await page.mouse.up()
+
+  const nodeAfter = await page.locator(".react-flow__node").all()
+  expect(nodeAfter).toHaveLength(nodeBefore.length + 1)
+})
+
 test("Connecting two nodes", async ({ page }) => {
   const outputSourceHandle = page
     .locator(".react-flow__handle-top")
@@ -83,3 +99,5 @@ test("Connecting two nodes", async ({ page }) => {
   const edgesAfter = await page.locator(".react-flow__edge").all()
   expect(edgesAfter).toHaveLength(edgesBefore.length + 1)
 })
+
+

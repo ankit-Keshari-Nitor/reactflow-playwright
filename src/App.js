@@ -1,33 +1,39 @@
-import React from "react"
-import FlowComponent from "./components/FlowComponent"
+import React, { useState } from "react"
+import {
+  BrowserRouter as Router,
+  Route,
+  Navigate,
+  Routes,
+} from "react-router-dom"
+import Workflow from "./components/workflow"
+import LoginForm from "./components/LoginPage"
 
-import "./styles/styles.css"
+const App = () => {
+  const [loggedIn, setloggedIn] = useState(false)
 
-function App() {
+  function callbackFunction(childData) {
+    setloggedIn(childData)
+  }
+
   return (
-    <div className="main-container">
-      <div className="drag-container">
-        <div
-          className="draggable"
-          draggable
-          onDragStart={(event) => {
-            event.dataTransfer.setData("application/reactflow", "partner")
-          }}
-        >
-          Partner Node
-        </div>
-        <div
-          className="draggable"
-          draggable
-          onDragStart={(event) => {
-            event.dataTransfer.setData("application/reactflow", "sponsor")
-          }}
-        >
-          Sponsor Node
-        </div>
-      </div>
-      <FlowComponent />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            loggedIn ? (
+              <Navigate to="/Workflow" />
+            ) : (
+              <LoginForm parentCallback={callbackFunction} />
+            )
+          }
+        />
+        <Route
+          path="/Workflow"
+          element={loggedIn ? <Workflow /> : <Navigate to="/" />}
+        />
+      </Routes>
+    </Router>
   )
 }
 
