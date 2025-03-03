@@ -9,7 +9,7 @@ function Workflow() {
       <div className="drag-container">
         <div
           id="partner-node"
-          className="draggable"
+          className="draggable-item"
           draggable
           onDragStart={(event) => {
             event.dataTransfer.setData("application/reactflow", "partner")
@@ -19,7 +19,7 @@ function Workflow() {
         </div>
         <div
           id="sponsor-node"
-          className="draggable"
+          className="draggable-item"
           draggable
           onDragStart={(event) => {
             event.dataTransfer.setData("application/reactflow", "sponsor")

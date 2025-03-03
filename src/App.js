@@ -24,7 +24,7 @@ const App = () => {
         {loggedIn && (
           <button
             id="logoutBtn"
-            class="button is-primary"
+            class="button is-block is-info"
             onClick={() => setLoggedIn(false)}
           >
             Log out

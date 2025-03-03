@@ -46,7 +46,7 @@ const FlowComponent = () => {
       id: String(Math.random()), // Generate a unique id
       type: type === "partner" ? "partner" : "sponsor", // Differentiate types
       position,
-      data: { label: `${type === "partner" ? "Partner" : "Sponsor"} Node` },
+      data: { label: `${type === "partner" ? "Partner" : "Sponsor"}` },
     }
 
     setNodes((nds) => nds.concat(newNode))

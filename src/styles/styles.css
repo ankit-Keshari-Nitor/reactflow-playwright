@@ -4,7 +4,9 @@
   justify-content: space-between;
   height: 4rem;
   width: 100%;
-  background: #eeeeee;
+  background: #161616;
+  color: #ffffff;
+  padding: 1rem;
 }
 
 .main-container {
@@ -22,13 +24,16 @@
   background: #eeeeee;
 }
 
-.draggable {
+.draggable-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
-  border-radius: 5px;
   cursor: grab;
   color: #000000;
-  border: 1px solid #000000;
   min-width: 6rem;
+  border: 1px solid #161616;
+  border-radius: 5px;
 }
 
 /* Additional style for the special node */
