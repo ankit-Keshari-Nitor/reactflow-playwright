@@ -14,11 +14,12 @@ import {
   Grid,
   Column,
 } from "@carbon/react"
-
-import "../styles/styles.scss"
+import { QX } from "@carbon/icons-react"
 import validateRegister from "../utils/registerFormValidationRules"
 
-const RegistrationForm = (props) => {
+import "../styles/styles.scss"
+
+const RegistrationForm = ({ onClose }) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
     validateRegister
@@ -28,24 +29,23 @@ const RegistrationForm = (props) => {
     return <Navigate to="/" />
   }
 
-  const goBackToLogin = () => {
-    return <Navigate to="/" />
-  }
-
-  console.log("values", values)
-
   return (
-    <div className="login-container">
+    <div className="node-data-container">
       <Form
         id="registration-form"
         aria-label="register form"
-        className="login-form"
+        className="node-data-form"
       >
         <Grid>
           {/* Sign Up text */}
           <Column lg={16}>
+            <span onClick={onClose} className="cross-icon-container">
+              <QX size={24} />
+            </span>
+          </Column>
+          <Column lg={16}>
             <span id="signUpTxt" className="login-text form-input">
-              Sign Up
+              Node Data
             </span>
           </Column>
           {/* First Name */}
@@ -233,17 +233,6 @@ const RegistrationForm = (props) => {
               onClick={handleSubmit}
             >
               Submit
-            </Button>
-          </Column>
-          {/* Go Back Button */}
-          <Column lg={4}>
-            <Button
-              id="goBackToLoginBtn"
-              kind="ghost"
-              className="form-input"
-              onClick={goBackToLogin}
-            >
-              Go back to login!
             </Button>
           </Column>
         </Grid>

@@ -13,7 +13,7 @@ import { INITIAL_NODES, INITIAL_EDGES } from "../utils/constant"
 
 import "../styles/styles.scss"
 
-const FlowDesigner = () => {
+const FlowDesigner = ({ onNodeClick }) => {
   const [nodes, setNodes] = useState(INITIAL_NODES)
   const [edges, setEdges] = useState(INITIAL_EDGES)
   const reactFlowWrapper = useRef(null) // Create a ref
@@ -75,6 +75,7 @@ const FlowDesigner = () => {
         onConnect={onConnect}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        onNodeClick={onNodeClick}
         onDrop={onDrop}
         onDragOver={onDragOver}
       >
