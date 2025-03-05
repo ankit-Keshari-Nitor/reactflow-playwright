@@ -13,6 +13,8 @@ import {
   SelectItem,
   TextInput,
   TextArea,
+  Grid,
+  Column,
 } from "@carbon/react"
 
 import "../styles/styles.scss"
@@ -38,155 +40,194 @@ const LoginForm = (props) => {
         aria-label="register form"
         className="login-form"
       >
-        <span className="login-text form-input">Sign Up</span>
-        {/* First Name */}
-        <TextInput
-          className="form-input"
-          id="test2"
-          labelText="Text Input label"
-          placeholder="Placeholder text"
-        />
-        {/* Last Name */}
-        <TextInput
-          className="form-input"
-          id="test2"
-          labelText="Text Input label"
-          placeholder="Placeholder text"
-        />
-        {/* Address */}
-        <TextArea
-          labelText="Text Area label"
-          className="form-input"
-          placeholder="Placeholder text"
-          id="test5"
-          rows={4}
-        />
-        {/* Gender */}
-        <RadioButtonGroup
-          name="radio-button-group"
-          defaultSelected="default-selected"
-          legendText="Radio Button heading"
-        >
-          <RadioButton
-            value="standard"
-            id="radio-1"
-            labelText="Standard Radio Button"
-            className="form-input"
-          />
-          <RadioButton
-            value="default-selected"
-            labelText="Default Selected Radio Button"
-            id="radio-2"
-            className="form-input"
-          />
-          <RadioButton
-            value="blue"
-            labelText="Standard Radio Button"
-            id="radio-3"
-            className="form-input"
-          />
-          <RadioButton
-            value="disabled"
-            labelText="Disabled Radio Button"
-            id="radio-4"
-            disabled
-            className="form-input"
-          />
-        </RadioButtonGroup>
-        {/* State */}
-        <Select
-          className="form-input"
-          id="select-1"
-          defaultValue="placeholder-item"
-        >
-          <SelectItem
-            disabled
-            hidden
-            value="placeholder-item"
-            text="Choose an option"
-          />
-          <SelectItem value="option-1" text="Option 1" />
-          <SelectItem value="option-2" text="Option 2" />
-          <SelectItem value="option-3" text="Option 3" />
-        </Select>
-        {/* City */}
-        <Select
-          className="form-input"
-          id="select-1"
-          defaultValue="placeholder-item"
-        >
-          <SelectItem
-            disabled
-            hidden
-            value="placeholder-item"
-            text="Choose an option"
-          />
-          <SelectItem value="option-1" text="Option 1" />
-          <SelectItem value="option-2" text="Option 2" />
-          <SelectItem value="option-3" text="Option 3" />
-        </Select>
-        {/* Pin code */}
-        <NumberInput
-          className="form-input"
-          id="number-input-1"
-          label="Number Input"
-          min={0}
-          max={100}
-          value={50}
-          step={10}
-          iconDescription="Add/decrement number"
-        />
-        {/* Terms */}
-        <Checkbox
-          labelText="Text Area label"
-          className="form-input"
-          id="checkbox-3"
-          helperText="Helper text goes here"
-        />
-        {/* Email */}
-        <TextInput
-          id="email"
-          className="form-input"
-          labelText="Email Address"
-          placeholder="some@gmail.com"
-          name="email"
-          onChange={handleChange}
-          value={values.email || ""}
-          invalid={errors.email}
-          invalidText={errors.email}
-        />
-        {/* Password */}
-        <TextInput
-          id="password"
-          type="password"
-          required
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          className="form-input"
-          labelText="Password"
-          invalid={errors.password}
-          invalidText={errors.password}
-          name="password"
-          onChange={handleChange}
-          value={values.password || ""}
-        />
-        {/* Submit Button */}
-        <Button
-          id="signUpBtn"
-          type="submit"
-          className="form-input"
-          onClick={handleSubmit}
-        >
-          Submit
-        </Button>
-        {/* Go Back Button */}
-        <Button
-          id="goBackToLoginBtn"
-          kind="ghost"
-          className="form-input"
-          onClick={goBackToLogin}
-        >
-          Go back to login!
-        </Button>
+        <Grid>
+          {/* Sign Up text */}
+          <Column lg={16}>
+            <span className="login-text form-input">Sign Up</span>
+          </Column>
+          {/* First Name */}
+          <Column lg={8}>
+            <TextInput
+              id="firstName"
+              className="form-input"
+              labelText="First Name"
+              placeholder="Micheal"
+              name="firstName"
+              onChange={handleChange}
+              value={values.firstName || ""}
+              invalid={errors.firstName}
+              invalidText={errors.firstName}
+            />
+          </Column>
+          {/* Last Name */}
+          <Column lg={8}>
+            <TextInput
+              id="lastName"
+              className="form-input"
+              labelText="Last Name"
+              placeholder="John"
+              name="lastName"
+              onChange={handleChange}
+              value={values.lastName || ""}
+              invalid={errors.lastName}
+              invalidText={errors.lastName}
+            />
+          </Column>
+          {/* Address */}
+          <Column lg={16}>
+            {" "}
+            <TextArea
+              id="address"
+              className="form-input"
+              labelText="Address"
+              placeholder="H-20, Decan, US"
+              name="address"
+              onChange={handleChange}
+              value={values.address || ""}
+              invalid={errors.address}
+              invalidText={errors.address}
+              rows={4}
+            />
+          </Column>
+          {/* Gender */}
+          <Column lg={16}>
+            <RadioButtonGroup
+              name="radio-button-group"
+              defaultSelected="male"
+              legendText="Gender"
+            >
+              <RadioButton
+                value="male"
+                id="male"
+                labelText="Male"
+                className="form-input"
+              />
+              <RadioButton
+                value="female"
+                labelText="Female"
+                id="female"
+                className="form-input"
+              />
+              <RadioButton
+                value="other"
+                labelText="Other"
+                id="other"
+                className="form-input"
+              />
+            </RadioButtonGroup>
+          </Column>
+          {/* State */}
+          <Column lg={8}>
+            <Select
+              className="form-input"
+              id="select-1"
+              defaultValue="placeholder-item"
+              labelText="State"
+            >
+              <SelectItem
+                disabled
+                value="placeholder-item"
+                text="Choose an option"
+              />
+              <SelectItem value="maharashtra" text="Maharashtra" />
+              <SelectItem value="punjab" text="Punjab" />
+              <SelectItem value="kerala" text="Kerala" />
+            </Select>
+          </Column>
+          {/* City */}
+          <Column lg={8}>
+            <Select
+              className="form-input"
+              id="select-1"
+              defaultValue="placeholder-item"
+              labelText="City"
+            >
+              <SelectItem
+                disabled
+                hidden
+                value="placeholder-item"
+                text="Choose an option"
+              />
+              <SelectItem value="pune" text="Pune" />
+              <SelectItem value="banglore" text="Banglore" />
+              <SelectItem value="mumbai" text="Mumbai" />
+            </Select>
+          </Column>
+          {/* Pin code */}
+          <Column lg={16}>
+            <TextInput
+              id="pinCode"
+              className="form-input"
+              labelText="Pin Code"
+              placeholder="123456"
+              name="pinCode"
+              onChange={handleChange}
+              value={values.pinCode || ""}
+              invalid={errors.pinCode}
+              invalidText={errors.pinCode}
+            />
+          </Column>
+          {/* Email */}
+          <Column lg={16}>
+            <TextInput
+              id="email"
+              className="form-input"
+              labelText="Email Address"
+              placeholder="some@gmail.com"
+              name="email"
+              onChange={handleChange}
+              value={values.email || ""}
+              invalid={errors.email}
+              invalidText={errors.email}
+            />
+          </Column>
+          {/* Password */}
+          <Column lg={16}>
+            <TextInput
+              id="password"
+              type="password"
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              className="form-input"
+              labelText="Password"
+              invalid={errors.password}
+              invalidText={errors.password}
+              name="password"
+              onChange={handleChange}
+              value={values.password || ""}
+            />
+          </Column>
+          {/* Terms */}
+          <Column lg={16}>
+            <Checkbox
+              labelText="I do accept the Terms and Conditions of your site."
+              className="form-input"
+              id="termsAndCondition"
+            />
+          </Column>
+          {/* Submit Button */}
+          <Column lg={4}>
+            <Button
+              id="signUpBtn"
+              type="submit"
+              className="form-input"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+          </Column>
+          {/* Go Back Button */}
+          <Column lg={4}>
+            <Button
+              id="goBackToLoginBtn"
+              kind="ghost"
+              className="form-input"
+              onClick={goBackToLogin}
+            >
+              Go back to login!
+            </Button>
+          </Column>
+        </Grid>
       </Form>
     </div>
   )
