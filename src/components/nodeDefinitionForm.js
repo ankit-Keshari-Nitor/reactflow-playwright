@@ -37,15 +37,16 @@ const NodeDefinitionForm = ({ onClose }) => {
         className="node-data-form"
       >
         <Grid>
-          {/* Sign Up text */}
+          {/* Close Button */}
           <Column lg={16}>
             <span onClick={onClose} className="cross-icon-container">
               <QX size={24} />
             </span>
           </Column>
+          {/* Definition Form text */}
           <Column lg={16}>
             <span id="signUpTxt" className="login-text form-input">
-              Node Data
+              Definition Form
             </span>
           </Column>
           {/* First Name */}
