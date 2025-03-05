@@ -6,9 +6,11 @@ import {
   Routes,
 } from "react-router-dom"
 import Workflow from "./components/workflow"
-import LoginForm from "./components/LoginPage"
 
-import "./styles/styles.css"
+import "./styles/styles.scss"
+import { TopNav } from "./components/topNav"
+import LoginForm from "./components/loginForm"
+import CarbonForm from "./components/carbonForm"
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -19,32 +21,22 @@ const App = () => {
 
   return (
     <>
-      <span className="title-bar">
-        <span className="is-size-1">PEM - 2.0</span>
-        {loggedIn && (
-          <button
-            id="logoutBtn"
-            class="button is-block is-info"
-            onClick={() => setLoggedIn(false)}
-          >
-            Log out
-          </button>
-        )}
-      </span>
+      <TopNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
         <Routes>
           <Route
             path="/"
             element={
               loggedIn ? (
-                <Navigate to="/Workflow" />
+                <Navigate to="/workflow" />
               ) : (
                 <LoginForm parentCallback={callbackFunction} />
               )
             }
           />
+          <Route path="/register" element={<CarbonForm />} />
           <Route
-            path="/Workflow"
+            path="/workflow"
             element={loggedIn ? <Workflow /> : <Navigate to="/" />}
           />
         </Routes>

@@ -1,7 +1,7 @@
 import React from "react"
-import FlowComponent from "./flowComponent"
+import FlowDesigner from "./flowDesigner"
 
-import "../styles/styles.css"
+import "../styles/styles.scss"
 
 function Workflow() {
   return (
@@ -28,7 +28,7 @@ function Workflow() {
           Sponsor
         </div>
       </div>
-      <FlowComponent />
+      <FlowDesigner />
     </div>
   )
 }

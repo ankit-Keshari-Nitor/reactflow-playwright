@@ -1,3 +1,9 @@
+@use "@carbon/styles/scss/spacing" as *;
+@use "@carbon/styles/scss/type" as *;
+@use "@carbon/styles/scss/theme" as *;
+@use "@carbon/styles/scss/config";
+@use "@carbon/react";
+
 .title-bar {
   display: flex;
   align-items: center;
@@ -6,7 +12,6 @@
   width: 100%;
   background: #161616;
   color: #ffffff;
-  padding: 1rem;
 }
 
 .main-container {
@@ -48,8 +53,14 @@
   justify-content: center;
 }
 
-h1 {
+.login-form {
+  min-width: 30%;
+}
+
+.login-text {
   font-size: 2em;
-  border-bottom: 1px solid rgb(248, 248, 248);
-  margin-bottom: 25px;
+}
+
+.form-input {
+  margin: 1rem 0rem;
 }

@@ -8,10 +8,12 @@ import {
   applyEdgeChanges,
 } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
-import "../styles/styles.css"
+
 import { INITIAL_NODES, INITIAL_EDGES } from "../utils/constant"
 
-const FlowComponent = () => {
+import "../styles/styles.scss"
+
+const FlowDesigner = () => {
   const [nodes, setNodes] = useState(INITIAL_NODES)
   const [edges, setEdges] = useState(INITIAL_EDGES)
   const reactFlowWrapper = useRef(null) // Create a ref
@@ -83,4 +85,4 @@ const FlowComponent = () => {
   )
 }
 
-export default FlowComponent
+export default FlowDesigner

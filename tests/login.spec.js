@@ -22,8 +22,8 @@ test("Validate Form and Login", async ({ page }) => {
   const userEmail = page.locator("#email")
   const password = page.locator("#password")
   const signInBtn = page.locator("#signInBtn")
-  const emailError = page.locator("#email-error")
-  const passwordError = page.locator("#password-error")
+  const emailError = page.locator("#email-error-msg")
+  const passwordError = page.locator("#password-error-msg")
   const logoutBtn = page.locator("#logoutBtn")
   const node = page.locator("#partner-node")
 
