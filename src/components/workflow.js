@@ -3,7 +3,7 @@ import FlowDesigner from "./flowDesigner"
 import { Panel, PanelGroup } from "react-resizable-panels"
 
 import "../styles/styles.scss"
-import RegistrationForm from "./registrationForm"
+import NodeDefinitionForm from "./nodeDefinitionForm"
 
 function Workflow() {
   const [showForm, setShowForm] = useState(false)
@@ -46,7 +46,7 @@ function Workflow() {
         {/* <PanelResizeHandle id="resize-handle" /> */}
         {showForm && (
           <Panel id="right-panel" defaultSize={30} minSize={20} maxSize={30}>
-            <RegistrationForm onClose={() => setShowForm(false)} />
+            <NodeDefinitionForm onClose={() => setShowForm(false)} />
           </Panel>
         )}
       </PanelGroup>

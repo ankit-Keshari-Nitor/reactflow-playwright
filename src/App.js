@@ -10,7 +10,6 @@ import Workflow from "./components/workflow"
 import "./styles/styles.scss"
 import { TopNav } from "./components/topNav"
 import LoginForm from "./components/loginForm"
-import RegistrationForm from "./components/registrationForm"
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false)

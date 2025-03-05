@@ -19,7 +19,7 @@ import validateRegister from "../utils/registerFormValidationRules"
 
 import "../styles/styles.scss"
 
-const RegistrationForm = ({ onClose }) => {
+const NodeDefinitionForm = ({ onClose }) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
     validateRegister
@@ -241,4 +241,4 @@ const RegistrationForm = ({ onClose }) => {
   )
 }
 
-export default RegistrationForm
+export default NodeDefinitionForm
