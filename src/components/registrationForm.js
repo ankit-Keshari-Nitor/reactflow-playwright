@@ -44,7 +44,7 @@ const LoginForm = (props) => {
         <Grid>
           {/* Sign Up text */}
           <Column lg={16}>
-            <span className="login-text form-input">Sign Up</span>
+            <span id="signUpTxt" className="login-text form-input">Sign Up</span>
           </Column>
           {/* First Name */}
           <Column lg={8}>
