@@ -1,12 +1,10 @@
 import React from "react"
 import { Navigate } from "react-router-dom"
 import useForm from "../utils/useForm"
-import validate from "../utils/loginFormValidationRules"
 import {
   Button,
   Checkbox,
   Form,
-  NumberInput,
   RadioButton,
   RadioButtonGroup,
   Select,
@@ -18,11 +16,12 @@ import {
 } from "@carbon/react"
 
 import "../styles/styles.scss"
+import validateRegister from "../utils/registerFormValidationRules"
 
 const LoginForm = (props) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
-    validate
+    validateRegister
   )
 
   function login() {
@@ -32,6 +31,8 @@ const LoginForm = (props) => {
   const goBackToLogin = () => {
     return <Navigate to="/" />
   }
+
+  console.log("values", values)
 
   return (
     <div className="login-container">
@@ -92,9 +93,11 @@ const LoginForm = (props) => {
           {/* Gender */}
           <Column lg={16}>
             <RadioButtonGroup
-              name="radio-button-group"
+              name="gender"
               defaultSelected="male"
               legendText="Gender"
+              onClick={handleChange}
+              value={values.gender || "male"}
             >
               <RadioButton
                 value="male"
@@ -120,13 +123,19 @@ const LoginForm = (props) => {
           <Column lg={8}>
             <Select
               className="form-input"
-              id="select-1"
-              defaultValue="placeholder-item"
+              id="state"
+              name="state"
+              defaultValue="chooseAnOption"
               labelText="State"
+              onChange={handleChange}
+              value={values.state || "chooseAnOption"}
+              invalid={errors.state}
+              invalidText={errors.state}
             >
               <SelectItem
                 disabled
-                value="placeholder-item"
+                hidden
+                value="chooseAnOption"
                 text="Choose an option"
               />
               <SelectItem value="maharashtra" text="Maharashtra" />
@@ -138,14 +147,19 @@ const LoginForm = (props) => {
           <Column lg={8}>
             <Select
               className="form-input"
-              id="select-1"
-              defaultValue="placeholder-item"
+              id="city"
+              name="city"
+              defaultValue="chooseAnOption"
               labelText="City"
+              onChange={handleChange}
+              value={values.city || "chooseAnOption"}
+              invalid={errors.city}
+              invalidText={errors.city}
             >
               <SelectItem
                 disabled
                 hidden
-                value="placeholder-item"
+                value="chooseAnOption"
                 text="Choose an option"
               />
               <SelectItem value="pune" text="Pune" />
@@ -200,9 +214,12 @@ const LoginForm = (props) => {
           {/* Terms */}
           <Column lg={16}>
             <Checkbox
+              name="termsAndCondition"
               labelText="I do accept the Terms and Conditions of your site."
               className="form-input"
               id="termsAndCondition"
+              onClick={handleChange}
+              value={values.termsAndCondition || ""}
             />
           </Column>
           {/* Submit Button */}
