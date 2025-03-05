@@ -18,7 +18,7 @@ import {
 import "../styles/styles.scss"
 import validateRegister from "../utils/registerFormValidationRules"
 
-const LoginForm = (props) => {
+const RegistrationForm = (props) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
     validateRegister
@@ -44,7 +44,9 @@ const LoginForm = (props) => {
         <Grid>
           {/* Sign Up text */}
           <Column lg={16}>
-            <span id="signUpTxt" className="login-text form-input">Sign Up</span>
+            <span id="signUpTxt" className="login-text form-input">
+              Sign Up
+            </span>
           </Column>
           {/* First Name */}
           <Column lg={8}>
@@ -250,4 +252,4 @@ const LoginForm = (props) => {
   )
 }
 
-export default LoginForm
+export default RegistrationForm

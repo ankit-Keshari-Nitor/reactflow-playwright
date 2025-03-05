@@ -34,7 +34,6 @@ const App = () => {
               )
             }
           />
-          <Route path="/register" element={<RegistrationForm />} />
           <Route
             path="/workflow"
             element={loggedIn ? <Workflow /> : <Navigate to="/" />}
