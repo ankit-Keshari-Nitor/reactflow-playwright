@@ -10,7 +10,7 @@ import Workflow from "./components/workflow"
 import "./styles/styles.scss"
 import { TopNav } from "./components/topNav"
 import LoginForm from "./components/loginForm"
-import CarbonForm from "./components/carbonForm"
+import RegistrationForm from "./components/registrationForm"
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -34,7 +34,7 @@ const App = () => {
               )
             }
           />
-          <Route path="/register" element={<CarbonForm />} />
+          <Route path="/register" element={<RegistrationForm />} />
           <Route
             path="/workflow"
             element={loggedIn ? <Workflow /> : <Navigate to="/" />}

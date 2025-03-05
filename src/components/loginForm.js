@@ -27,7 +27,7 @@ const LoginForm = (props) => {
   return (
     <div className="login-container">
       {loggedIn && <Navigate to="/workflow" />}
-      <Form aria-label="login form" className="login-form">
+      <Form id="login-form" aria-label="login form" className="login-form">
         <span className="login-text form-input">Login</span>
         <TextInput
           id="email"
