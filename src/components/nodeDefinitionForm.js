@@ -15,7 +15,7 @@ import {
   Column,
 } from "@carbon/react"
 import { QX } from "@carbon/icons-react"
-import validateRegister from "../utils/registerFormValidationRules"
+import validateRegister from "../utils/nodeDefinitionValidationRules"
 
 import "../styles/styles.scss"
 
@@ -49,91 +49,62 @@ const NodeDefinitionForm = ({ onClose }) => {
               Definition Form
             </span>
           </Column>
-          {/* First Name */}
-          <Column lg={8}>
+          {/* Name */}
+          <Column lg={16}>
             <TextInput
-              id="firstName"
+              id="name"
               className="form-input"
-              labelText="First Name"
-              placeholder="Micheal"
-              name="firstName"
+              labelText="Name"
+              placeholder="Name"
+              name="name"
               onChange={handleChange}
-              value={values.firstName || ""}
-              invalid={errors.firstName}
-              invalidText={errors.firstName}
+              value={values.name || ""}
+              invalid={errors.name}
+              invalidText={errors.name}
             />
           </Column>
-          {/* Last Name */}
-          <Column lg={8}>
+          {/* URL */}
+          <Column lg={16}>
             <TextInput
-              id="lastName"
+              id="url"
               className="form-input"
-              labelText="Last Name"
-              placeholder="John"
-              name="lastName"
+              labelText="URL"
+              placeholder="https://xyz.com"
+              name="url"
               onChange={handleChange}
-              value={values.lastName || ""}
-              invalid={errors.lastName}
-              invalidText={errors.lastName}
+              value={values.url || ""}
+              invalid={errors.url}
+              invalidText={errors.url}
             />
           </Column>
-          {/* Address */}
+          {/* Description */}
           <Column lg={16}>
             {" "}
             <TextArea
-              id="address"
+              id="description"
               className="form-input"
-              labelText="Address"
-              placeholder="H-20, Decan, US"
-              name="address"
+              labelText="Description"
+              placeholder="Lorem Lipsum"
+              name="description"
               onChange={handleChange}
-              value={values.address || ""}
-              invalid={errors.address}
-              invalidText={errors.address}
+              value={values.description || ""}
+              invalid={errors.description}
+              invalidText={errors.description}
               rows={4}
             />
           </Column>
-          {/* Gender */}
+          {/* Role */}
           <Column lg={16}>
-            <RadioButtonGroup
-              name="gender"
-              defaultSelected="male"
-              legendText="Gender"
-              onClick={handleChange}
-              value={values.gender || "male"}
-            >
-              <RadioButton
-                value="male"
-                id="male"
-                labelText="Male"
-                className="form-input"
-              />
-              <RadioButton
-                value="female"
-                labelText="Female"
-                id="female"
-                className="form-input"
-              />
-              <RadioButton
-                value="other"
-                labelText="Other"
-                id="other"
-                className="form-input"
-              />
-            </RadioButtonGroup>
-          </Column>
-          {/* State */}
-          <Column lg={8}>
             <Select
               className="form-input"
-              id="state"
-              name="state"
+              id="role"
+              name="role"
               defaultValue="chooseAnOption"
-              labelText="State"
+              labelText="Role"
               onChange={handleChange}
-              value={values.state || "chooseAnOption"}
-              invalid={errors.state}
-              invalidText={errors.state}
+              value={values.role || "chooseAnOption"}
+              invalid={errors.role}
+              invalidText={errors.role}
             >
               <SelectItem
                 disabled
@@ -141,55 +112,17 @@ const NodeDefinitionForm = ({ onClose }) => {
                 value="chooseAnOption"
                 text="Choose an option"
               />
-              <SelectItem value="maharashtra" text="Maharashtra" />
-              <SelectItem value="punjab" text="Punjab" />
-              <SelectItem value="kerala" text="Kerala" />
+              <SelectItem value="admin" text="Admin" />
+              <SelectItem value="user" text="User" />
+              <SelectItem value="volunteer" text="Volunteer" />
             </Select>
-          </Column>
-          {/* City */}
-          <Column lg={8}>
-            <Select
-              className="form-input"
-              id="city"
-              name="city"
-              defaultValue="chooseAnOption"
-              labelText="City"
-              onChange={handleChange}
-              value={values.city || "chooseAnOption"}
-              invalid={errors.city}
-              invalidText={errors.city}
-            >
-              <SelectItem
-                disabled
-                hidden
-                value="chooseAnOption"
-                text="Choose an option"
-              />
-              <SelectItem value="pune" text="Pune" />
-              <SelectItem value="banglore" text="Banglore" />
-              <SelectItem value="mumbai" text="Mumbai" />
-            </Select>
-          </Column>
-          {/* Pin code */}
-          <Column lg={16}>
-            <TextInput
-              id="pinCode"
-              className="form-input"
-              labelText="Pin Code"
-              placeholder="123456"
-              name="pinCode"
-              onChange={handleChange}
-              value={values.pinCode || ""}
-              invalid={errors.pinCode}
-              invalidText={errors.pinCode}
-            />
           </Column>
           {/* Email */}
           <Column lg={16}>
             <TextInput
               id="email"
               className="form-input"
-              labelText="Email Address"
+              labelText="Email"
               placeholder="some@gmail.com"
               name="email"
               onChange={handleChange}
@@ -214,8 +147,37 @@ const NodeDefinitionForm = ({ onClose }) => {
               value={values.password || ""}
             />
           </Column>
+          {/* Format */}
+          <Column lg={16} style={{ margin: "0.5rem 1rem" }}>
+            <RadioButtonGroup
+              name="format"
+              defaultSelected="svg"
+              legendText="Format"
+              onClick={handleChange}
+              value={values.format || "svg"}
+            >
+              <RadioButton
+                value="svg"
+                id="svg"
+                labelText="SVG"
+                className="form-input"
+              />
+              <RadioButton
+                value="pdf"
+                labelText="PDF"
+                id="pdf"
+                className="form-input"
+              />
+              <RadioButton
+                value="jpg"
+                labelText="JPG"
+                id="jpg"
+                className="form-input"
+              />
+            </RadioButtonGroup>
+          </Column>
           {/* Terms */}
-          <Column lg={16}>
+          <Column lg={16} style={{ margin: "0.5rem 1rem" }}>
             <Checkbox
               name="termsAndCondition"
               labelText="I do accept the Terms and Conditions of your site."

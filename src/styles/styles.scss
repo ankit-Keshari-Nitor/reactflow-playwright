@@ -71,6 +71,8 @@
   align-items: start;
   justify-content: center;
   border-left: 1px solid #161616;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .node-data-form {
@@ -81,6 +83,10 @@
 
 .login-text {
   font-size: 2em;
+}
+
+.logout-button {
+  cursor: pointer;
 }
 
 .form-input {

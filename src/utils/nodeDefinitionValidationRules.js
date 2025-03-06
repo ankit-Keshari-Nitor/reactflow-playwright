@@ -1,35 +1,23 @@
 export default function validateRegister(values) {
   let errors = {}
-  if (!values.firstName) {
-    errors.firstName = "First Name is required"
+  if (!values.name) {
+    errors.name = "Name is required"
   }
-  if (!values.lastName) {
-    errors.lastName = "Last Name is required"
+  if (!values.url) {
+    errors.url = "URL is required"
   }
-  if (!values.address) {
-    errors.address = "Address is required"
-  }
-
-  if (!values.gender) {
-    errors.gender = "Gender is required"
+  if (!values.description) {
+    errors.description = "Description is required"
   }
 
-  if (!values.pinCode) {
-    errors.pinCode = "Pin Code is required"
-  }
-
-  if (!values.state) {
-    errors.state = "State is required"
-  }
-
-  if (!values.city) {
-    errors.city = "City is required"
+  if (!values.role) {
+    errors.role = "Role is required"
   }
 
   if (!values.email) {
-    errors.email = "Email address is required"
+    errors.email = "Email description is required"
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = "Email address is invalid"
+    errors.email = "Email description is invalid"
   }
   if (!values.password) {
     errors.password = "Password is required"
@@ -42,5 +30,6 @@ export default function validateRegister(values) {
   } else if (!/[A-Z]/g.test(values.password)) {
     errors.password = "Password must contain atleast 1 capitol letter"
   }
+
   return errors
 }
