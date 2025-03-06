@@ -39,13 +39,13 @@ const NodeDefinitionForm = ({ onClose }) => {
         <Grid>
           {/* Close Button */}
           <Column lg={16}>
-            <span onClick={onClose} className="cross-icon-container">
+            <span id="crossDefinitionBtn" onClick={onClose} className="cross-icon-container">
               <QX size={24} />
             </span>
           </Column>
           {/* Definition Form text */}
           <Column lg={16}>
-            <span id="signUpTxt" className="login-text form-input">
+            <span id="definitionTxt" className="login-text form-input">
               Definition Form
             </span>
           </Column>
@@ -190,7 +190,7 @@ const NodeDefinitionForm = ({ onClose }) => {
           {/* Submit Button */}
           <Column lg={4}>
             <Button
-              id="signUpBtn"
+              id="submitBtn"
               type="submit"
               className="form-input"
               onClick={handleSubmit}
